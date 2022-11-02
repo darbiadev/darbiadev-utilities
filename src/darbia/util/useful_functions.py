@@ -31,7 +31,7 @@ def dict_compare(
     Examples
     --------
     >>> dict_compare(old_dict=dict(), new_dict=dict())
-    (list(), list(), dict(), list())
+    ([], [], {}, [])
     """
     old_dict_keys: set[Any] = set(old_dict.keys())
     new_dict_keys: set[Any] = set(new_dict.keys())
@@ -249,7 +249,7 @@ def bulk_substring_remove(
     Examples
     --------
     >>> bulk_substring_remove("yankee doodle", ["yan", "dle"])
-    "kee doo"
+    'kee doo'
     """
     for substring in substrings:
         text = text.replace(substring, "")
@@ -283,7 +283,7 @@ def get_nested_dict_value(
     Examples
     --------
     >>> get_nested_dict_value({"key": {"path": "value"}}, "key.path")
-    "value"
+    'value'
     """
     keys = keypath.split(separator)
 
