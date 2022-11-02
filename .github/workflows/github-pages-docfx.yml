@@ -31,12 +31,12 @@ jobs:
         DOCFXVERSION: 3.0.0-beta1.1260+9e3c31b73d
 
     - name: Build Documentation
-      run: .docfx-zip/docfx build
+      run: .docfx-zip/docfx build ./docs/
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
-        path: ./_site
+        path: ./docs/_site
 
   deploy:
     environment:
