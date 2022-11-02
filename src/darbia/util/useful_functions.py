@@ -51,7 +51,7 @@ def dict_compare(
 
 # https://stackoverflow.com/a/24290026/8160821
 def enumerate2(
-    xs: Iterable[Any],
+    iterable: Iterable[Any],
     start: int = 0,
     step: int = 1,
 ) -> Generator[tuple[int, Any], Any, None]:
@@ -63,15 +63,15 @@ def enumerate2(
     item, index : tuple[Any, int]
         The next item and the next number per step
     """
-    for x in xs:
-        yield start, x
+    for item in iterable:
+        yield start, item
         start += step
 
 
 # https://stackoverflow.com/a/312464/8160821
 def chunks(
     lst: list[Any],
-    n: int,
+    size: int,
 ) -> Generator[list, Any, None]:
     """
     Yield successive n-sized chunks from lst.
@@ -81,8 +81,8 @@ def chunks(
     chunk : list
         An n-sized chunk of the list
     """
-    for i in range(0, len(lst), n):
-        yield lst[i : i + n]
+    for i in range(0, len(lst), size):
+        yield lst[i : i + size]
 
 
 # https://stackoverflow.com/a/952952
@@ -173,7 +173,7 @@ class CustomEncoder(json.JSONEncoder):
 
     def default(
         self,
-        obj: Any,
+        o: Any,
     ) -> Any:
         """
         Serialize an object.
@@ -182,7 +182,7 @@ class CustomEncoder(json.JSONEncoder):
 
         Parameters
         ----------
-        obj : Any
+        o : Any
             Object to serialize
 
         Returns
@@ -190,15 +190,15 @@ class CustomEncoder(json.JSONEncoder):
         serialized_object : Any
             Serialized object
         """
-        if type(obj) not in [dict, list, tuple, str, int, float, bool, None]:
-            return str(obj)
-        return json.JSONEncoder.default(self, obj)
+        if type(o) not in [dict, list, tuple, str, int, float, bool, None]:
+            return str(o)
+        return json.JSONEncoder.default(self, o)
 
 
 def find_nth(
     haystack: str,
     needle: str,
-    n: int,
+    nth: int,
 ) -> int:
     """
     Find the nth occurrence of a substring in a string.
@@ -209,7 +209,7 @@ def find_nth(
         The string to search in
     needle
         The substring to search for
-    n
+    nth
         Which nth occurrence to find
 
     Returns
@@ -222,9 +222,9 @@ def find_nth(
     9
     """
     start = haystack.find(needle)
-    while start >= 0 and n > 1:
+    while start >= 0 and nth > 1:
         start = haystack.find(needle, start + len(needle))
-        n -= 1
+        nth -= 1
     return start
 
 
