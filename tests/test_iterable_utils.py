@@ -1,20 +1,8 @@
-"""Testing the utilities module"""
+"""Test iterable utils"""
 
-from darbia.util import (
-    chunks,
-    dict_compare,
-    enumerate2,
-    flatten,
-    random_string,
-    split_prefix_and_number,
-)
+from __future__ import annotations
 
-
-def test_dict_compare() -> None:
-    old_dict = {"a": 1, "b": 2, "d": 7}
-    new_dict = {"b": 3, "c": 4, "d": 7}
-    comparison_results = (["c"], ["a"], {"b": (2, 3)}, ["d"])
-    assert dict_compare(old_dict=old_dict, new_dict=new_dict) == comparison_results
+from darbia.utils.iterables import chunks, enumerate2, flatten
 
 
 def test_enumerate2() -> None:
@@ -36,11 +24,3 @@ def test_flatten() -> None:
         "b",
         "c",
     ]
-
-
-def test_random_string() -> None:
-    assert random_string(length=1, characters="a") == "a"
-
-
-def test_split_prefix_and_number() -> None:
-    assert split_prefix_and_number("a1") == ("a", 1)
