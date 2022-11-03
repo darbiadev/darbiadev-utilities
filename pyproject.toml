@@ -46,3 +46,4 @@ addopts = "tests -r a -v --doctest-modules src"
 
 [tool.pylint.format]
 max-line-length = 120
+good-names=["it"]
