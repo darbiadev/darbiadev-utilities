@@ -27,7 +27,7 @@ tests = [
     "pytest>=6.2.5",
 
     # Install all possible packages during tests
-    "pandas>=1.5.1"
+    "pandas"
 ]
 
 [build-system]
