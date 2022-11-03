@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+import json
+from datetime import timedelta
+
 from darbia.utils.strings import (
+    CustomEncoder,
     bulk_substring_remove,
     find_nth,
     random_string,
@@ -16,6 +20,10 @@ def test_random_string() -> None:
 
 def test_split_prefix_and_number() -> None:
     assert split_prefix_and_number("a1") == ("a", 1)
+
+
+def test_custom_encoder() -> None:
+    assert json.dumps(timedelta(seconds=15), cls=CustomEncoder) == '"0:00:15"'
 
 
 def test_find_nth() -> None:
