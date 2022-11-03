@@ -20,7 +20,7 @@ def enumerate2(
 
     Yields
     ------
-    item, index
+    index, item
         The next item and the next number per step
     """
     for item in iterable:
