@@ -155,6 +155,7 @@ def bulk_substring_remove(
         text = text.replace(substring, "")
     return text
 
+
 def prefix_zfilled(
     prefix: str,
     iterable: Iterable,
@@ -174,7 +175,7 @@ def prefix_zfilled(
         The seperator between the prefix and the iterable
     zeroes
         The number of zeros to zfill the iterable with
-    
+
     Yields
     -------
     The items from the iterable with formatting
