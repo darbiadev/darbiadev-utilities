@@ -6,6 +6,7 @@ import json
 import random
 import re
 import string
+from collections.abc import Generator, Iterable
 from typing import Any
 
 
@@ -153,3 +154,35 @@ def bulk_substring_remove(
     for substring in substrings:
         text = text.replace(substring, "")
     return text
+
+def prefix_zfilled(
+    prefix: str,
+    iterable: Iterable,
+    sep: str = "-",
+    zeroes: int = 3,
+) -> Generator[str, None, None]:
+    """
+    Generate a series of formatted strings from an iterable.
+
+    Parameters
+    ----------
+    prefix
+        The text to prefix to each item
+    iterable
+        The items to iterate over
+    sep
+        The seperator between the prefix and the iterable
+    zeroes
+        The number of zeros to zfill the iterable with
+    
+    Yields
+    -------
+    The items from the iterable with formatting
+
+    Examples
+    --------
+    >>> list(prefix_zfilled("x", range(50, 53)))
+    ['x-050', 'x-051', 'x-052']
+    """
+    for i in iterable:
+        yield f"{prefix}{sep}{i:0{zeroes}}"
