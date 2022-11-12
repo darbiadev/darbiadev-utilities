@@ -2,21 +2,25 @@
 
 from __future__ import annotations
 
-from typing import Any, Generator, Iterable
+from collections.abc import Generator, Iterable
+from itertools import islice
+from typing import TypeVar
+
+T = TypeVar("T")
 
 
 # https://stackoverflow.com/a/24290026/8160821
 def enumerate2(
-    iterable: Iterable[Any],
+    iterable: Iterable[T],
     start: int = 0,
     step: int = 1,
-) -> Generator[tuple[int, Any], Any, None]:
+) -> Generator[tuple[int, T], None, None]:
     """
-    Yield items from a list with a custom index.
+    Yield items from an iterable with a custom index.
 
     Yields
     ------
-    item, index : tuple[Any, int]
+    index, item
         The next item and the next number per step
     """
     for item in iterable:
@@ -26,41 +30,42 @@ def enumerate2(
 
 # https://stackoverflow.com/a/312464/8160821
 def chunks(
-    lst: list[Any],
+    iterable: Iterable[T],
     size: int,
-) -> Generator[list, Any, None]:
+) -> Generator[tuple[T, ...], None, None]:
     """
-    Yield successive n-sized chunks from lst.
+    Yield successive n-sized chunks from iterable.
 
     Yields
     ------
-    chunk : list
-        An n-sized chunk of the list
+    chunk
+        An n-sized chunk of the iterable
     """
-    for i in range(0, len(lst), size):
-        yield lst[i : i + size]
+    it = iter(iterable)
+    while chunk := tuple(islice(it, size)):
+        yield chunk
 
 
 # https://stackoverflow.com/a/952952
 def flatten(
-    lst: list[list[Any]],
-) -> list[Any]:
+    iterable: Iterable[Iterable[T]],
+) -> Iterable[T]:
     """
     Flattens a list of lists into a single list.
 
     Parameters
     ----------
-    lst : list[list[Any]]
+    iterable
         The nested lists to flatten.
 
     Returns
     -------
-    flattend_list : list[Any]
-        The flattened list.
+    flattend_iterable
+        The flattened iterable.
 
     Examples
     --------
-    >>> flatten(lst=[['a'],['b']])
+    >>> flatten([['a'],['b']])
     ['a', 'b']
     """
-    return [item for sublist in lst for item in sublist]
+    return [item for sub_iter in iterable for item in sub_iter]

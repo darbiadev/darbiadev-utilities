@@ -15,7 +15,7 @@ def test_enumerate2() -> None:
 
 def test_chunks() -> None:
     lst = [1, 2, 3, 4, 5, 6]
-    assert list(chunks(lst, 3)) == [[1, 2, 3], [4, 5, 6]]
+    assert list(chunks(lst, 3)) == [(1, 2, 3), (4, 5, 6)]
 
 
 def test_flatten() -> None:
