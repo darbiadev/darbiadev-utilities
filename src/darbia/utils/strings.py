@@ -185,5 +185,5 @@ def prefix_zfilled(
     >>> list(prefix_zfilled("x", range(50, 53)))
     ['x-050', 'x-051', 'x-052']
     """
-    for i in iterable:
-        yield f"{prefix}{sep}{i:0{zeroes}}"
+    for item in iterable:
+        yield f"{prefix}{sep}{item:0{zeroes}}"
