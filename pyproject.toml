@@ -1,6 +1,6 @@
 [project]
 name = "darbiadev-utilities"
-version = "0.4.0"
+version = "0.5.0"
 description = "Namespace for utility functions"
 authors = [
     { name = "Bradley Reynolds", email = "bradley.reynolds@darbia.dev" },
