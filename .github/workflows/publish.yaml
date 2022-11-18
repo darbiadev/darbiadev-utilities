@@ -5,5 +5,5 @@ on:
 
 jobs:
  publish:
-    uses: darbiadev/.github/workflows/pypi-publish.yaml@main
+    uses: darbiadev/.github/.github/workflows/pypi-publish.yaml@main
     secrets: inherit
