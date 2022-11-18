@@ -23,5 +23,5 @@ jobs:
 
   publish:
     needs: lint-test
-    uses: darbiadev/.github/.github/workflows/pypi-publish.yaml@main
+    uses: darbiadev/.github/.github/workflows/python-pypi-publish.yaml@main
     secrets: inherit
