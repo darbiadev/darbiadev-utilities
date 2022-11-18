@@ -1,0 +1,9 @@
+name: Publish
+
+on:
+  push:
+
+jobs:
+ publish:
+    uses: darbiadev/.github/workflows/pypi-publish.yaml@main
+    secrets: inherit
