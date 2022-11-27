@@ -10,8 +10,12 @@ on:
   pull_request:
 
 jobs:
-  lint:    
-    uses: darbiadev/.github/.github/workflows/python-lint.yaml@main 
+  pre-commit:
+    uses: darbiadev/.github/.github/workflows/generic-precommit.yaml@main
+
+  lint:
+    needs: pre-commit
+    uses: darbiadev/.github/.github/workflows/python-lint.yaml@main
 
   test:
     needs: lint
