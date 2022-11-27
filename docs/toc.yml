@@ -1,5 +1,0 @@
-﻿- name: Home
-  href: index.md
-- name: OtherArticles
-  href: other-articles/
-  homepage: other-articles/docfx_getting_started.md
