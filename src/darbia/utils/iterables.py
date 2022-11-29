@@ -9,7 +9,6 @@ from typing import TypeVar
 T = TypeVar("T")
 
 
-# https://stackoverflow.com/a/24290026/8160821
 def enumerate2(
     iterable: Iterable[T],
     start: int = 0,
@@ -22,13 +21,16 @@ def enumerate2(
     ------
     index, item
         The next item and the next number per step
+
+    See Also
+    --------
+    https://stackoverflow.com/a/24290026/8160821
     """
     for item in iterable:
         yield start, item
         start += step
 
 
-# https://stackoverflow.com/a/312464/8160821
 def chunks(
     iterable: Iterable[T],
     size: int,
@@ -40,13 +42,16 @@ def chunks(
     ------
     chunk
         An n-sized chunk of the iterable
+
+    See Also
+    --------
+    https://stackoverflow.com/a/312464/8160821
     """
     it = iter(iterable)
     while chunk := tuple(islice(it, size)):
         yield chunk
 
 
-# https://stackoverflow.com/a/952952
 def flatten(
     iterable: Iterable[Iterable[T]],
 ) -> Iterable[T]:
@@ -67,5 +72,9 @@ def flatten(
     --------
     >>> flatten([['a'],['b']])
     ['a', 'b']
+
+    See Also
+    --------
+    https://stackoverflow.com/a/952952
     """
     return [item for sub_iter in iterable for item in sub_iter]
