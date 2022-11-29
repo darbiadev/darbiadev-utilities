@@ -5,7 +5,6 @@ from __future__ import annotations
 from typing import Any
 
 
-# https://stackoverflow.com/a/18860653
 def dict_compare(
     old_dict: dict[Any, Any],
     new_dict: dict[Any, Any],
@@ -28,6 +27,10 @@ def dict_compare(
     --------
     >>> dict_compare(old_dict=dict(), new_dict=dict())
     ([], [], {}, [])
+
+    See Also
+    --------
+    https://stackoverflow.com/a/18860653
     """
     old_dict_keys: set[Any] = set(old_dict.keys())
     new_dict_keys: set[Any] = set(new_dict.keys())
