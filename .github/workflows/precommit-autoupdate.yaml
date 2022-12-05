@@ -1,9 +1,6 @@
 name: Pre-Commit autoupdate
 
-on:
-  # on demand
-  workflow_dispatch:
-  # every day at midnight
+on: 
   schedule:
     - cron: "0 0 * * *"
 
