@@ -2,15 +2,23 @@
 
 from __future__ import annotations
 
+import pytest
+
 from darbia.utils.iterables import chunks, enumerate2, flatten
 
 
-def test_enumerate2() -> None:
-    assert list(enumerate2("abc", 0, 1)) == [(0, "a"), (1, "b"), (2, "c")]
-    assert list(enumerate2("abc", 1, 2)) == [(1, "a"), (3, "b"), (5, "c")]
-    assert list(enumerate2("abc", 2, 3)) == [(2, "a"), (5, "b"), (8, "c")]
-    assert list(enumerate2("abc", 0, -1)) == [(0, "a"), (-1, "b"), (-2, "c")]
-    assert list(enumerate2("abc", -1, -2)) == [(-1, "a"), (-3, "b"), (-5, "c")]
+@pytest.mark.parametrize(
+    "iterable,start,step,output",
+    [
+        ("abc", 0, 1, [(0, "a"), (1, "b"), (2, "c")]),
+        ("abc", 1, 2, [(1, "a"), (3, "b"), (5, "c")]),
+        ("abc", 2, 3, [(2, "a"), (5, "b"), (8, "c")]),
+        ("abc", 0, -1, [(0, "a"), (-1, "b"), (-2, "c")]),
+        ("abc", -1, -2, [(-1, "a"), (-3, "b"), (-5, "c")]),
+    ],
+)
+def test_enumerate2(iterable, start, step, output) -> None:
+    assert list(enumerate2(iterable, start, step)) == output
 
 
 def test_chunks() -> None:
