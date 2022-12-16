@@ -29,8 +29,8 @@ def dict_compare(
     >>> dict_compare(old_dict=dict(), new_dict=dict())
     ([], [], {}, [])
 
-    See Also
-    --------
+    Notes
+    -----
     https://stackoverflow.com/a/18860653
     """
     old_dict_keys: set[Any] = set(old_dict.keys())
