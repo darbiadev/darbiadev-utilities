@@ -113,6 +113,7 @@ def keychain(dicts: list[dict]) -> dict:
     for dct in dicts:
         for key, value in output.items():
             last_value = value[-1]
+            # pylint: disable-next=unnecessary-dict-index-lookup
             output[key].append(dct[last_value])
 
     return output
