@@ -1,5 +1,7 @@
 """Test parser utils"""
 
+from __future__ import annotations
+
 import pytest
 
 from darbia.utils.parsers import range_parser
