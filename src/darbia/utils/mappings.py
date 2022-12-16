@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import defaultdict
 from typing import Any
 
 
@@ -84,3 +85,34 @@ def get_nested_dict_value(
             break
 
     return value
+
+
+def keychain(dicts: list[dict]) -> dict:
+    """
+    Create a dict of chains of keys from sequential dicts
+
+    Parameters
+    ----------
+    dicts
+        The list of dictionaries to chain
+
+    Returns
+    -------
+    A dictionary of lists of all chains
+
+    Notes
+    -----
+    https://discord.com/channels/267624335836053506/587375768556797982/1044549320948584528
+    """
+    output = defaultdict(list)
+
+    first, *dicts = dicts
+    for key, value in first.items():
+        output[key].append(value)
+
+    for dct in dicts:
+        for key, value in output.items():
+            last_value = value[-1]
+            output[key].append(dct[last_value])
+
+    return output
