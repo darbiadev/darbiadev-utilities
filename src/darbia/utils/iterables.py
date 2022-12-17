@@ -22,8 +22,8 @@ def enumerate2(
     index, item
         The next item and the next number per step
 
-    See Also
-    --------
+    Notes
+    -----
     https://stackoverflow.com/a/24290026/8160821
     """
     for item in iterable:
@@ -43,8 +43,8 @@ def chunks(
     chunk
         An n-sized chunk of the iterable
 
-    See Also
-    --------
+    Notes
+    -----
     https://stackoverflow.com/a/312464/8160821
     """
     it = iter(iterable)
@@ -73,8 +73,8 @@ def flatten(
     >>> flatten([['a'],['b']])
     ['a', 'b']
 
-    See Also
-    --------
+    Notes
+    -----
     https://stackoverflow.com/a/952952
     """
     return [item for sub_iter in iterable for item in sub_iter]
