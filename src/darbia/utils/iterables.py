@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Generator, Iterable
+from collections.abc import Iterable
 from itertools import islice
 from typing import TypeVar
 
@@ -13,7 +13,7 @@ def enumerate2(
     iterable: Iterable[T],
     start: int = 0,
     step: int = 1,
-) -> Generator[tuple[int, T], None, None]:
+) -> Iterable[tuple[int, T]]:
     """
     Yield items from an iterable with a custom index.
 
@@ -34,7 +34,7 @@ def enumerate2(
 def chunks(
     iterable: Iterable[T],
     size: int,
-) -> Generator[tuple[T, ...], None, None]:
+) -> Iterable[tuple[T, ...]]:
     """
     Yield successive n-sized chunks from iterable.
 
