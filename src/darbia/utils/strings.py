@@ -6,7 +6,7 @@ import json
 import random
 import re
 import string
-from collections.abc import Generator, Iterable
+from collections.abc import Iterable
 from typing import Any
 
 
@@ -161,7 +161,7 @@ def prefix_zfilled(
     iterable: Iterable,
     sep: str = "-",
     zeroes: int = 3,
-) -> Generator[str, None, None]:
+) -> Iterable[str]:
     """
     Generate a series of formatted strings from an iterable.
 
