@@ -24,7 +24,7 @@ dev = [
 ]
 tests = [
     "pytest",
-    
+
     # Install all possible packages during tests
     "pandas",
 ]
