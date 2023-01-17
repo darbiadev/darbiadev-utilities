@@ -1,26 +1,22 @@
-"""Sphinx configuration file"""
+"""Configuration file for the Sphinx documentation builder.
 
-from __future__ import annotations
+For the full list of built-in configuration values, see the documentation:
+https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""
 
-import os
-import sys
+from pathlib import Path
 
-import toml
+try:
+    from tomllib import loads as toml_loads
+except ImportError:
+    from toml import loads as toml_loads
 
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-sys.path.insert(0, os.path.abspath("../.."))
-
-project_config = toml.load("../../pyproject.toml")
+project_config = toml_loads(Path("../../pyproject.toml").read_text())
 project: str = project_config["project"]["name"]
 release: str = project_config["project"]["version"]
-git_url: str = project_config["project"]["urls"]["repository"]
+REPO_LINK: str = project_config["project"]["urls"]["repository"]
 copyright: str = project_config["tool"]["sphinx"]["copyright"]  # noqa: A001
 author: str = project_config["tool"]["sphinx"]["author"]
-api_dir: str = project_config["tool"]["sphinx"]["api_dir"]
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named "sphinx.ext.*") or your custom
@@ -30,12 +26,11 @@ extensions = [
     "sphinx.ext.linkcode",
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
+    "autoapi.extension",
 ]
 
-apidoc_module_dir: str = f"../../{api_dir}"
-
 autoapi_type: str = "python"
-autoapi_dirs: list[str] = [apidoc_module_dir]
+autoapi_dirs: list[str] = ["../../src"]
 
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
 
@@ -51,7 +46,7 @@ exclude_patterns: list[str] = ["_build", "Thumbs.db", ".DS_Store"]
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme: str = "sphinx_rtd_theme"
+html_theme: str = "furo"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -98,4 +93,4 @@ def linkcode_resolve(domain, info):
         except (OSError, TypeError):
             pass
 
-    return f"{git_url}/blob/main/src/{filename}"
+    return f"{REPO_LINK}/blob/main/src/{filename}"
