@@ -11,3 +11,5 @@ There are several distinct modules
 ..  toctree::
     :maxdepth: 1
     :glob:
+
+    autoapi/darbia/utils/index
