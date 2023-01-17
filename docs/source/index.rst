@@ -9,7 +9,7 @@ Module Index
 There are several distinct modules
 
 ..  toctree::
-    :maxdepth: 1
+    :maxdepth: 3
     :glob:
 
     autoapi/darbia/utils/index
