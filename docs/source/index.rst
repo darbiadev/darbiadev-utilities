@@ -9,7 +9,7 @@ Module Index
 .. toctree::
    :maxdepth: 1
 
-   autoapi/index
+   autoapi/darbia/utils/index
 
 .. toctree::
    :caption: Other:
