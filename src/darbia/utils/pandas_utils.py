@@ -1,11 +1,9 @@
-"""Utility functions"""
-
-from __future__ import annotations
+"""Utility functions."""
 
 from logging import Logger
 from pathlib import Path
 
-import pandas
+import pandas as pd
 
 
 def load_sheet(
@@ -34,9 +32,9 @@ def load_sheet(
         list of dicts representing the rows in the sheet
 
     """
-    logger.info(f"_load_sheet: {file_name=} {sheet_name=}")
+    logger.info("_load_sheet: %s %s", file_name, sheet_name)
     return (
-        pandas.read_excel(
+        pd.read_excel(
             io=str(data_path / file_name),
             sheet_name=sheet_name,
         )

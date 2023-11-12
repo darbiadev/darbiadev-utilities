@@ -1,6 +1,4 @@
-"""Assorted utility functions"""
-
-from __future__ import annotations
+"""Assorted utility functions."""
 
 from collections.abc import Iterable
 from itertools import islice

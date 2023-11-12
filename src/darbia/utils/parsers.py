@@ -1,11 +1,9 @@
-"""Assorted utility functions"""
-
-from __future__ import annotations
+"""Assorted utility functions."""
 
 
 def range_parser(text: str) -> list[int]:
     """
-    Parse the numbers in text
+    Parse the numbers in text.
 
     Parameters
     ----------

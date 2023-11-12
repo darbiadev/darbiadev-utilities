@@ -1,4 +1,4 @@
-"""Test mapping utils"""
+"""Test mapping utils."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ def test_get_nested_dict_value() -> None:
     assert result_none is None
 
 
-def test_keychain():
+def test_keychain() -> None:
     dicts = [
         {"a": "b", "v": "w", "o": "p"},
         {"b": "c", "w": "x", "p": "q"},

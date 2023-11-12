@@ -1,1 +1,1 @@
-"""Assorted utility functions"""
+"""Assorted utility functions."""

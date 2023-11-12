@@ -1,4 +1,4 @@
-"""Test string utils"""
+"""Test string utils."""
 
 from __future__ import annotations
 
@@ -6,7 +6,6 @@ import json
 from datetime import timedelta
 
 import pytest
-
 from darbia.utils.strings import (
     CustomEncoder,
     bulk_substring_remove,
@@ -21,7 +20,7 @@ def test_random_string() -> None:
 
 
 @pytest.mark.parametrize(
-    "text,output",
+    ("text", "output"),
     [
         ("a1", ("a", 1)),
         ("a1000", ("a", 1000)),
@@ -37,7 +36,7 @@ def test_custom_encoder() -> None:
 
 
 @pytest.mark.parametrize(
-    "text,char,nth,index",
+    ("text", "char", "nth", "index"),
     [
         ("here's johnny", "o", 1, 8),
         ("orale ya vamos", "a", 3, 10),
@@ -48,7 +47,7 @@ def test_find_nth(text: str, char: str, nth: int, index: int) -> None:
 
 
 @pytest.mark.parametrize(
-    "text,strings,output",
+    ("text", "strings", "output"),
     [
         ("here's johnny", ["he", "joh"], "re's nny"),
         ("orale ya vamos", ["ya", "am"], "orale  vos"),

@@ -1,9 +1,9 @@
-"""Assorted utility functions"""
-
-from __future__ import annotations
+"""Assorted utility functions."""
 
 from collections import defaultdict
-from typing import Any
+from typing import Any, TypeVar
+
+T = TypeVar("T")
 
 
 def dict_compare(
@@ -41,18 +41,18 @@ def dict_compare(
     modified_keys: dict[Any, tuple[Any, Any]] = {
         key: (old_dict[key], new_dict[key]) for key in intersecting_keys if old_dict[key] != new_dict[key]
     }
-    unmodified_keys: set[Any] = set(o for o in intersecting_keys if old_dict[o] == new_dict[o])
+    unmodified_keys: set[Any] = {o for o in intersecting_keys if old_dict[o] == new_dict[o]}
     return list(new_keys), list(removed_keys), modified_keys, list(unmodified_keys)
 
 
 def get_nested_dict_value(
     dct: dict,
     keypath: str,
-    default=None,
+    default: T = None,
     separator: str = ".",
-) -> Any:
+) -> T:
     """
-    Parse nested values from dictionaries
+    Parse nested values from dictionaries.
 
     Parameters
     ----------
@@ -89,7 +89,7 @@ def get_nested_dict_value(
 
 def keychain(dicts: list[dict]) -> dict:
     """
-    Create a dict of chains of keys from sequential dicts
+    Create a dict of chains of keys from sequential dicts.
 
     Parameters
     ----------

@@ -6,10 +6,22 @@ Namespace for utility functions
 Module Index
 ------------
 
-There are several distinct modules
+.. toctree::
+   :maxdepth: 1
 
-..  toctree::
-    :maxdepth: 3
-    :glob:
+   autoapi/darbia/utils/index
 
-    autoapi/darbia/utils/index
+.. toctree::
+   :caption: Other:
+   :hidden:
+
+   changelog
+   history
+
+Extras
+------
+
+* :ref:`genindex`
+* :ref:`search`
+* :doc:`changelog`
+* :doc:`history`

@@ -1,13 +1,13 @@
-"""Assorted utility functions"""
-
-from __future__ import annotations
+"""Assorted utility functions."""
 
 import json
 import random
 import re
 import string
 from collections.abc import Iterable
-from typing import Any
+from typing import Self, TypeVar
+
+T = TypeVar("T")
 
 
 def random_string(
@@ -15,7 +15,7 @@ def random_string(
     characters: str = string.ascii_uppercase,
 ) -> str:
     """
-    Generates a random string of the specified length using the specified character set.
+    Generate a random string of the specified length using the specified character set.
 
     Parameters
     ----------
@@ -61,7 +61,8 @@ def split_prefix_and_number(
     search_results = re.search(r"([a-zA-Z])(\d+)", text)
 
     if search_results is None:
-        raise ValueError("Invalid input")
+        msg = "Invalid input"
+        raise ValueError(msg)
 
     prefix, number = search_results.groups()
 
@@ -72,11 +73,11 @@ class CustomEncoder(json.JSONEncoder):
     """A custom JSON encoder that attempts to convert all user defined classes to string."""
 
     def default(
-        self,
-        o: Any,
-    ) -> Any:
-        """
-        Serialize an object.
+        self: Self,
+        o: T,
+    ) -> T:
+        """Serialize an object.
+
         If the object is not a builtin, return the __str__ of the object.
         For builtins, use the standard serializer.
 
@@ -90,7 +91,7 @@ class CustomEncoder(json.JSONEncoder):
         serialized_object : Any
             Serialized object
         """
-        if type(o) not in [dict, list, tuple, str, int, float, bool, None]:
+        if type(o) not in {dict, list, tuple, str, int, float, bool, None}:
             return str(o)
         return json.JSONEncoder.default(self, o)
 
@@ -131,7 +132,7 @@ def find_nth(
 def bulk_substring_remove(
     text: str,
     substrings: list[str],
-):
+) -> str:
     """
     Remove all substrings from a string.
 
@@ -177,7 +178,7 @@ def prefix_zfilled(
         The number of zeros to zfill the iterable with
 
     Yields
-    -------
+    ------
     The items from the iterable with formatting
 
     Examples
