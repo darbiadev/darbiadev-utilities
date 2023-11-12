@@ -1,14 +1,9 @@
 """Utility functions."""
 
-from __future__ import annotations
-
-from typing import TYPE_CHECKING
+from logging import Logger
+from pathlib import Path
 
 import pandas as pd
-
-if TYPE_CHECKING:
-    from logging import Logger
-    from pathlib import Path
 
 
 def load_sheet(
@@ -37,7 +32,7 @@ def load_sheet(
         list of dicts representing the rows in the sheet
 
     """
-    logger.info(f"_load_sheet: {file_name=} {sheet_name=}")
+    logger.info("_load_sheet: %s %s", file_name, sheet_name)
     return (
         pd.read_excel(
             io=str(data_path / file_name),

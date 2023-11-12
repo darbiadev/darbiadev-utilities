@@ -14,5 +14,5 @@ from darbia.utils.parsers import range_parser
         ("5, 7-10", [5, 7, 8, 9, 10]),
     ],
 )
-def test_range_parser(value: str, result: list[int]):
+def test_range_parser(value: str, result: list[int]) -> None:
     assert range_parser(value) == result

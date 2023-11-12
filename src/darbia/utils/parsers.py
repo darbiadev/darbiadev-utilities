@@ -1,7 +1,5 @@
 """Assorted utility functions."""
 
-from __future__ import annotations
-
 
 def range_parser(text: str) -> list[int]:
     """

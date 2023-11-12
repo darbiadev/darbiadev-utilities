@@ -1,12 +1,8 @@
 """Assorted utility functions."""
 
-from __future__ import annotations
-
+from collections.abc import Iterable
 from itertools import islice
-from typing import TYPE_CHECKING, TypeVar
-
-if TYPE_CHECKING:
-    from collections.abc import Iterable
+from typing import TypeVar
 
 T = TypeVar("T")
 

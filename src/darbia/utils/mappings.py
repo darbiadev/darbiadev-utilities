@@ -1,9 +1,9 @@
 """Assorted utility functions."""
 
-from __future__ import annotations
-
 from collections import defaultdict
-from typing import Any
+from typing import Any, TypeVar
+
+T = TypeVar("T")
 
 
 def dict_compare(
@@ -48,9 +48,9 @@ def dict_compare(
 def get_nested_dict_value(
     dct: dict,
     keypath: str,
-    default=None,
+    default: T = None,
     separator: str = ".",
-) -> Any:
+) -> T:
     """
     Parse nested values from dictionaries.
 

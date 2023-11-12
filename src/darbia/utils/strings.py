@@ -1,15 +1,13 @@
 """Assorted utility functions."""
 
-from __future__ import annotations
-
 import json
 import random
 import re
 import string
-from typing import TYPE_CHECKING, Any
+from collections.abc import Iterable
+from typing import Self, TypeVar
 
-if TYPE_CHECKING:
-    from collections.abc import Iterable
+T = TypeVar("T")
 
 
 def random_string(
@@ -17,7 +15,7 @@ def random_string(
     characters: str = string.ascii_uppercase,
 ) -> str:
     """
-    Generates a random string of the specified length using the specified character set.
+    Generate a random string of the specified length using the specified character set.
 
     Parameters
     ----------
@@ -75,11 +73,11 @@ class CustomEncoder(json.JSONEncoder):
     """A custom JSON encoder that attempts to convert all user defined classes to string."""
 
     def default(
-        self,
-        o: Any,
-    ) -> Any:
-        """
-        Serialize an object.
+        self: Self,
+        o: T,
+    ) -> T:
+        """Serialize an object.
+
         If the object is not a builtin, return the __str__ of the object.
         For builtins, use the standard serializer.
 
@@ -134,7 +132,7 @@ def find_nth(
 def bulk_substring_remove(
     text: str,
     substrings: list[str],
-):
+) -> str:
     """
     Remove all substrings from a string.
 

@@ -47,7 +47,8 @@ target-version = "py311"
 select = ["ALL"]
 line-length = 120
 ignore = [
-    "CPY001" # (Missing copyright notice at top of file) - No license
+    "CPY001", # (Missing copyright notice at top of file) - No license
+    "S311", # (Standard pseudo-random generators are not suitable for cryptographic purposes) -- hehe
 ]
 
 [tool.ruff.extend-per-file-ignores]
@@ -57,6 +58,7 @@ ignore = [
 "tests/*" = [
     "INP001", # (File `tests/*.py` is part of an implicit namespace package. Add an `__init__.py`.) - Tests are not modules
     "S101", # (Use of `assert` detected) - Yes, that's the point
+    "D103", # (Missing docstring in public function) - Tests are not public
 ]
 
 [tool.ruff.pydocstyle]
