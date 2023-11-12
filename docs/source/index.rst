@@ -1,15 +1,27 @@
-darbiadev-utilities
-===================
+darbiadev-fedex
+===============
 
-Namespace for utility functions
+A wrapper for FedEx's API
 
 Module Index
 ------------
 
-There are several distinct modules
+.. toctree::
+   :maxdepth: 1
 
-..  toctree::
-    :maxdepth: 3
-    :glob:
+   autoapi/index
 
-    autoapi/darbia/utils/index
+.. toctree::
+   :caption: Other:
+   :hidden:
+
+   changelog
+   history
+
+Extras
+------
+
+* :ref:`genindex`
+* :ref:`search`
+* :doc:`changelog`
+* :doc:`history`
