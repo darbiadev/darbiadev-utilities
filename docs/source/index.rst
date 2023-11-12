@@ -1,7 +1,7 @@
-darbiadev-fedex
-===============
+darbiadev-utilities
+===================
 
-A wrapper for FedEx's API
+Namespace for utility functions
 
 Module Index
 ------------
