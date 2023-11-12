@@ -8,9 +8,7 @@ authors = [
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.8"
-dependencies = [
-
-]
+dependencies = []
 
 [project.urls]
 repository = "https://github.com/darbiadev/darbiadev-utilities/"
@@ -38,20 +36,24 @@ docs = [
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.sphinx]
-copyright = "Darbia"
-author = "Bradley Reynolds"
-
-[tool.black]
-target-version = ["py310"]
+[tool.ruff]
+preview = true
+unsafe-fixes = true
+target-version = "py311"
+select = ["ALL"]
 line-length = 120
+ignore = [
+    "CPY001" # (Missing copyright notice at top of file) - No license
+]
 
-[tool.isort]
-profile = "black"
+[tool.ruff.extend-per-file-ignores]
+"docs/*" = [
+    "INP001", # (File `tests/*.py` is part of an implicit namespace package. Add an `__init__.py`.) - Docs are not modules
+]
+"tests/*" = [
+    "INP001", # (File `tests/*.py` is part of an implicit namespace package. Add an `__init__.py`.) - Tests are not modules
+    "S101", # (Use of `assert` detected) - Yes, that's the point
+]
 
-[tool.pytest.ini_options]
-addopts = "tests -r a -v --doctest-modules src"
-
-[tool.pylint.format]
-max-line-length = 120
-good-names=["it"]
+[tool.ruff.pydocstyle]
+convention = "numpy"
