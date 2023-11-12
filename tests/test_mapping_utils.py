@@ -1,4 +1,4 @@
-"""Test mapping utils"""
+"""Test mapping utils."""
 
 from __future__ import annotations
 

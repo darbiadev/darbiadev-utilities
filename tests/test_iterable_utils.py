@@ -1,14 +1,13 @@
-"""Test iterable utils"""
+"""Test iterable utils."""
 
 from __future__ import annotations
 
 import pytest
-
 from darbia.utils.iterables import chunks, enumerate2, flatten
 
 
 @pytest.mark.parametrize(
-    "iterable,start,step,output",
+    ("iterable", "start", "step", "output"),
     [
         ("abc", 0, 1, [(0, "a"), (1, "b"), (2, "c")]),
         ("abc", 1, 2, [(1, "a"), (3, "b"), (5, "c")]),

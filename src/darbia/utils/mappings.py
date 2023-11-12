@@ -1,4 +1,4 @@
-"""Assorted utility functions"""
+"""Assorted utility functions."""
 
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ def dict_compare(
     modified_keys: dict[Any, tuple[Any, Any]] = {
         key: (old_dict[key], new_dict[key]) for key in intersecting_keys if old_dict[key] != new_dict[key]
     }
-    unmodified_keys: set[Any] = set(o for o in intersecting_keys if old_dict[o] == new_dict[o])
+    unmodified_keys: set[Any] = {o for o in intersecting_keys if old_dict[o] == new_dict[o]}
     return list(new_keys), list(removed_keys), modified_keys, list(unmodified_keys)
 
 
@@ -52,7 +52,7 @@ def get_nested_dict_value(
     separator: str = ".",
 ) -> Any:
     """
-    Parse nested values from dictionaries
+    Parse nested values from dictionaries.
 
     Parameters
     ----------
@@ -89,7 +89,7 @@ def get_nested_dict_value(
 
 def keychain(dicts: list[dict]) -> dict:
     """
-    Create a dict of chains of keys from sequential dicts
+    Create a dict of chains of keys from sequential dicts.
 
     Parameters
     ----------

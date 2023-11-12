@@ -1,4 +1,4 @@
-"""Assorted utility functions"""
+"""Assorted utility functions."""
 
 from __future__ import annotations
 
@@ -6,8 +6,10 @@ import json
 import random
 import re
 import string
-from collections.abc import Iterable
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from collections.abc import Iterable
 
 
 def random_string(
@@ -61,7 +63,8 @@ def split_prefix_and_number(
     search_results = re.search(r"([a-zA-Z])(\d+)", text)
 
     if search_results is None:
-        raise ValueError("Invalid input")
+        msg = "Invalid input"
+        raise ValueError(msg)
 
     prefix, number = search_results.groups()
 
@@ -90,7 +93,7 @@ class CustomEncoder(json.JSONEncoder):
         serialized_object : Any
             Serialized object
         """
-        if type(o) not in [dict, list, tuple, str, int, float, bool, None]:
+        if type(o) not in {dict, list, tuple, str, int, float, bool, None}:
             return str(o)
         return json.JSONEncoder.default(self, o)
 
@@ -177,7 +180,7 @@ def prefix_zfilled(
         The number of zeros to zfill the iterable with
 
     Yields
-    -------
+    ------
     The items from the iterable with formatting
 
     Examples
