@@ -12,7 +12,7 @@ jobs:
     permissions:
       # Qodana adding checks
       checks: write
-      pull-requests: write needed
+      pull-requests: write
       # Qodana uploading SARIF
       security-events: write
     steps:
