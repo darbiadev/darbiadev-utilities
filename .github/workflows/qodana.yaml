@@ -30,7 +30,7 @@ jobs:
           cache-dependency-path: "pyproject.toml"
 
       - name: "Install dependencies"
-        run: python -m pip install .
+        run: python -m pip install .[tests]
 
       - name: Qodana Scan
         uses: JetBrains/qodana-action@95ecb19ba27e308153723e54a790e4ad908b13a0 # v2023.2.8
