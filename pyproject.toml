@@ -16,15 +16,15 @@ documentation = "https://docs.darbia.dev/darbiadev-utilities/"
 
 [project.optional-dependencies]
 dev = [
-    "pre-commit==3.5.0",
-    "ruff==0.1.6",
+    "pre-commit==3.6.0",
+    "ruff==0.1.9",
 ]
 tests = [
-    "pytest==7.4.3",
+    "pytest==7.4.4",
     "pytest-randomly==3.15.0",
 
     # Install all possible packages during tests
-    "pandas==2.1.3",
+    "pandas==2.1.4",
 ]
 docs = [
     "sphinx==7.2.6",
@@ -33,7 +33,7 @@ docs = [
     "releases==2.1.1",
 
     # Install all possible packages during docs builds
-    "pandas==2.1.3",
+    "pandas==2.1.4",
 ]
 
 [build-system]
